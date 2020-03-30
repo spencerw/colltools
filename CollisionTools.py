@@ -31,10 +31,11 @@ def make_coll_log(path):
         return sorted(l, key=alphanum_key)
 
     filenames = sort_nicely(gl.glob(path+'output.*'))
-    colnames = 'time iorder1 iorder2 m1 m2 r1 r2 x1x x1y x1z x2x x2y x2z xNewx '
-    'xNewy xNewz v1x v1y v1z v2x v2y v2z vNewx vNewy vNewz w1x w1y w1z w2x w2y '
+    colnames = 'time iorder1 iorder2 m1 m2 r1 r2 x1x x1y x1z x2x x2y x2z xNewx ' \
+    'xNewy xNewz v1x v1y v1z v2x v2y v2z vNewx vNewy vNewz w1x w1y w1z w2x w2y ' \
     'w2z wNewx wNewy wNewz'
     colnames = colnames.split(' ')
+    print(len(colnames))
 
     merger_count = 0
     data = []
