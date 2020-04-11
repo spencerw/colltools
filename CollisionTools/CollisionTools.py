@@ -72,8 +72,9 @@ class Node:
         self.children.append(obj)
 
 class CollisionLog:
-    def __init__(self, path_to_table, dup_rows=False):
+    def __init__(self, path_to_table, m_central, dup_rows=False):
         self.coll = pd.read_csv(path_to_table)
+        self.coll = self.get_coll_kepler(m_central)
         
         # If there are two entries for each collision
         # Remove every other row
@@ -169,3 +170,5 @@ class CollisionLog:
         self.coll['Omega2'] = Omega_c_c2
         self.coll['omega2'] = omega_c_c2
         self.coll['M2'] = M_c_c2
+
+        return self.coll
