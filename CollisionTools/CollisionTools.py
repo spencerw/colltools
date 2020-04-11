@@ -72,12 +72,13 @@ class Node:
         self.children.append(obj)
 
 class CollisionLog:
-    def __init__(self, path_to_table):
+    def __init__(self, path_to_table, dup_rows=False):
         self.coll = pd.read_csv(path_to_table)
         
-        # There are two entries for each collision
+        # If there are two entries for each collision
         # Remove every other row
-        self.coll = self.coll.iloc[::2]
+        if dup_rows:
+            self.coll = self.coll.iloc[::2]
 
     def build_tree_for(self, iord):
         '''
