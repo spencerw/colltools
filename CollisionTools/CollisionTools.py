@@ -148,12 +148,12 @@ class CollisionLog:
         vx_c_c1, vy_c_c1, vz_c_c1 = self.coll['v1x'], self.coll['v1y'], self.coll['v1z']
         m1_c = self.coll['m1']
         a_c_c1, e_c_c1, inc_c_c1, Omega_c_c1, omega_c_c1, M_c_c1 = \
-        KeplerOrbit.cart2kepX(x_c_c1, y_c_c1, z_c_c1, vx_c_c1, vy_c_c1, vz_c_c1, mc_c, m1_c)
+        KeplerOrbit.cart2kep(x_c_c1, y_c_c1, z_c_c1, vx_c_c1, vy_c_c1, vz_c_c1, mc_c, m1_c)
         x_c_c2, y_c_c2, z_c_c2 = self.coll['x2x'], self.coll['x2y'], self.coll['x2z']
         vx_c_c2, vy_c_c2, vz_c_c2 = self.coll['v2x'], self.coll['v2y'], self.coll['v2z']
         m2_c = self.coll['m2']
         a_c_c2, e_c_c2, inc_c_c2, Omega_c_c2, omega_c_c2, M_c_c2 = \
-        KeplerOrbit.cart2kepX(x_c_c2, y_c_c2, z_c_c2, vx_c_c2, vy_c_c2, vz_c_c2, mc_c, m2_c)
+        KeplerOrbit.cart2kep(x_c_c2, y_c_c2, z_c_c2, vx_c_c2, vy_c_c2, vz_c_c2, mc_c, m2_c)
 
         self.coll['a1'] = a_c_c1
         self.coll['e1'] = e_c_c1
