@@ -14,6 +14,7 @@ setuptools.setup(
     description="Routines for working with collision outputs from ChaNGa",
     long_description=long_description,
     long_description_content_type="text/markdown",
+    install_requires=["KeplerOrbit"],
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
