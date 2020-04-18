@@ -72,8 +72,13 @@ class Node:
         self.children.append(obj)
 
 class CollisionLog:
-    def __init__(self, path_to_table, m_central, dup_rows=False):
+    def __init__(self, path_to_table, m_central, dup_rows=False, fix_v2y=False):
         self.coll = pd.read_csv(path_to_table)
+
+        if fix_v2y:
+            self.coll['v2y'] = -(self.coll['m1']*self.coll['v1y'] - \
+                    (self.coll['m1'] + self.coll['m2'])*self.coll['vNewy'])/self.coll['m2']
+
         self.coll = self.get_coll_kepler(m_central)
         
         # If there are two entries for each collision
