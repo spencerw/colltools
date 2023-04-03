@@ -3,8 +3,8 @@ class Handler:
         print('init handler')
         self.simpath = simpath
 
-    def process_output(self):
+    def process_output(self, clobber):
         print('process output for handler')
-    
-    def build_tree(self):
-        print('build tree for handler')
+
+    def verify_output(self):
+        print('verify output for handler')
