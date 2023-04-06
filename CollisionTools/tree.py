@@ -22,7 +22,8 @@ class Tree:
 
         # Remove central body colliders from tree
         cen_coll = self.d1[self.s1 < 0]
-        for idx, n in enumerate(self.root.children):
+        for idx in range(len((self.root.children))-1, -1, -1):
+            n = self.root.children[idx]
             if np.isin(n.iord, cen_coll):
                 del self.root.children[idx]
         print('Complete!')
@@ -33,9 +34,9 @@ class Tree:
             root_iords[idx] = self.root.children[idx].iord
 
         # Ensure root iords and remaining iords of final snapshot match
-        if not np.array_equal(np.sort(root_iords), np.sort(snap_final['iord'])):
+        m0 = np.min(snap0['mass'])
+        if not np.array_equal(np.sort(root_iords), np.sort(snap_final[snap_final['mass'] > m0]['iord'])):
             print('Warning: root iords and final snapshot iords dont match')
-            m0 = np.min(snap0['mass'])
             print(len(root_iords), len(snap_final[snap_final['mass'] > m0]))
 
     # Iterate through collision log and add nodes one by one
