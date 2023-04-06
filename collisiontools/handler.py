@@ -8,3 +8,6 @@ class Handler:
 
     def verify_output(self):
         print('verify output for handler')
+
+    def get_coll_data(self):
+        print('grab collision data for handler')
