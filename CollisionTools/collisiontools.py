@@ -42,6 +42,12 @@ class CollisionTools:
 
         tree.verify_build(self.handler.snap0, self.handler.final_snap)
 
+    def get_tree(self):
+        with open(self.simpath + '/tree.dat', 'rb') as f:
+            root = pickle.load(f)
+
+        return root
+
     def get_root_property(self, prop, snap=None, time=sys.float_info.max):
         if snap is None:
             snap = self.handler.final_snap
