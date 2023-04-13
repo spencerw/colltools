@@ -8,6 +8,7 @@ install:
   - pip install pytest-cov
   - pip install numpy==1.16.1
   - pip install pynbody
+  - pip install keplerorbit
   - python setup.py develop
 
 script:
